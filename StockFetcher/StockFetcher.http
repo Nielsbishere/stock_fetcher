@@ -1,0 +1,6 @@
+@StockFetcher_HostAddress = http://localhost:5228
+
+GET {{StockFetcher_HostAddress}}/
+Accept: application/csv
+
+###
