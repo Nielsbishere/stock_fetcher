@@ -19,6 +19,15 @@ namespace StockFetcher.Controllers {
 			string[] tickers = inputTickers.Split(',');
 
 			HttpClient client = new HttpClient();
+
+			//User agent is required or yahoo will (correctly assume) that we're a bot.
+			//We're totally not a bot actually, don't even worry about it.
+			//All your data are belong to us.
+
+			client.DefaultRequestHeaders.Add(
+				"User-Agent", "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/6.0;)"
+			);
+
 			List<Task<HttpResponseMessage>> responses = new List<Task<HttpResponseMessage>>();
 
 			foreach(string ticker in tickers)
